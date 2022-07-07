@@ -1,0 +1,28 @@
+{
+  "name": "@donutteam/koa-log-requests",
+  "version": "1.0.0",
+  "description": "A class for creating Koa middlewares that log when requests start and end.",
+  "main": "./index.js",
+  "scripts": {
+    "lint": "eslint . -c ./.eslintrc.cjs",
+    "lint-fix": "eslint . -c ./.eslintrc.cjs --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/donutteam/koa-force-ssl.git"
+  },
+  "keywords": [
+    "koa",
+    "middleware",
+    "logging"
+  ],
+  "author": "Donut Team",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "chalk": "5.0.1"
+  },
+  "devDependencies": {
+    "koa": "^2.13.4"
+  }
+}
