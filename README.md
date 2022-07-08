@@ -12,7 +12,7 @@ npm install @donutteam/koa-log-requests
 To use this class, simply instantiate an instance and add it to your Koa stack:
 
 ```js
-import Koa from "Koa";
+import Koa from "koa";
 
 import { LogRequestsMiddleware } from "@donutteam/koa-log-requests";
 
