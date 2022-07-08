@@ -1,6 +1,6 @@
 {
   "name": "@donutteam/koa-log-requests",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A class for creating Koa middlewares that log when requests start and end.",
   "main": "./index.js",
   "scripts": {
