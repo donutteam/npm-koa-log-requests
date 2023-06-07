@@ -3,53 +3,47 @@
 //
 
 import chalk from "chalk";
+import type { Middleware } from "koa";
 
 //
 // Log Request Middleware
 //
 
-/**
- * A class for creating middlewares that logs the starts and ends of requests to the console.
- */
+export interface LogRequestsMiddlewareOptions
+{
+	/** An object whose keys are IP addresses and whose values are names for those IP addresses. */
+	ipNames? : LogRequestMiddlewareIPNames;
+
+	/** Whether or not to log the start of requests. */
+	logStart? : boolean;
+}
+
+export interface LogRequestMiddlewareIPNames
+{
+	[ip : string] : string;
+}
+
+/** A class for creating middlewares that logs the starts and ends of requests to the console.*/
 export class LogRequestsMiddleware
 {
-	/**
-	 * A middleware that logs the starts and ends of requests to the console.
-	 * 
-	 * @type {import("koa").Middleware}
-	 */
-	execute;
+	/** A middleware that logs the starts and ends of requests to the console. */
+	execute : Middleware;
 
-	/**
-	 * An object whose keys are IP addresses and whose values are names for those IP addresses.
-	 * 
-	 * @type {Object}
-	 */
-	ipNames = {};
+	/** An object whose keys are IP addresses and whose values are names for those IP addresses. */
+	ipNames : LogRequestMiddlewareIPNames = {};
 
-	/**
-	 * Whether or not to log the start of requests.
-	 * 
-	 * @type {Boolean}
-	 */
+	/** Whether or not to log the start of requests.*/
 	logStart = true;
 
-	/**
-	 * The current request number.
-	 *
-	 * @type {Number}
-	 */
+	/** The current request number. */
 	requestNumber = 0;
 
 	/**
 	 * Constructs a new LogRequestMiddleware.
-	 *
-	 * @param {Object} [options] Options for the middleware. Optional.
-	 * @param {Object} [options.ipNames] An object whose keys are IP addresses and whose values are names for those IP addresses. Optional.
-	 * @param {Boolean} [options.logStart] Whether or not to log the start of requests. Optional, defaults to true.
+	 * 
 	 * @author Loren Goodwin
 	 */
-	constructor(options)
+	constructor(options : LogRequestsMiddlewareOptions = {})
 	{
 		this.ipNames = options?.ipNames ?? this.ipNames;
 

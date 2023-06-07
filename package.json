@@ -2,10 +2,12 @@
   "name": "@donutteam/koa-log-requests",
   "version": "1.0.2",
   "description": "A class for creating Koa middlewares that log when requests start and end.",
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "scripts": {
+    "build": "npx rimraf lib && npx tsc",
     "lint": "eslint . -c ./.eslintrc.cjs",
-    "lint-fix": "eslint . -c ./.eslintrc.cjs --fix"
+    "lint-fix": "eslint . -c ./.eslintrc.cjs --fix",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,9 @@
     "chalk": "5.0.1"
   },
   "devDependencies": {
-    "koa": "^2.13.4"
+    "@types/koa": "^2.13.6",
+    "koa": "^2.13.4",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.1.3"
   }
 }
